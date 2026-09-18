@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>داستان — LYTKUH STUDIO</title>
+<style>
+:root{--bg:#071018;--panel:#0b1c29;--line:#1a2f40;--cyan:#55e6ff;
+--text:#e8f6ff;--muted:#8ca4b8;--dim:#536a7e;--green:#61e6a0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);
+  font-family:Tahoma,"Segoe UI",sans-serif;line-height:2;
+  background-image:radial-gradient(900px 500px at 50% -100px,rgba(0,190,232,.08),transparent 70%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:linear-gradient(rgba(255,255,255,.014) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.wrap{width:min(900px,calc(100% - 40px));margin:auto}
+header{padding:22px 0;border-bottom:1px solid var(--line);
+  background:rgba(4,9,15,.5);backdrop-filter:blur(12px)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;border-radius:12px;
+  border:1px solid rgba(85,230,255,.25);
+  background:linear-gradient(145deg,#0b1c29,#071018);
+  display:grid;place-items:center;
+  font-family:Consolas,monospace;font-size:1.3rem;color:var(--cyan);
+  box-shadow:0 0 22px rgba(85,230,255,.12)}
+.brand h1{font-size:1.25rem}
+.brand h1 b{color:var(--cyan)}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;
+  padding:9px 16px;border:1px solid var(--line);border-radius:10px;transition:.18s}
+nav a:hover{color:#fff;border-color:rgba(85,230,255,.35)}
+.kicker{color:var(--cyan);font-size:.75rem;font-weight:700;
+  letter-spacing:.18em;display:flex;gap:10px;align-items:center;
+  margin:50px 0 14px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--cyan)}
+h2.title{font-size:2.2rem;margin-bottom:40px}
+h2.title span{color:var(--cyan)}
+.chapter{background:linear-gradient(145deg,rgba(9,25,35,.85),rgba(5,12,19,.9));
+  border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:20px;
+  position:relative;overflow:hidden}
+.chapter::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 100% 0,rgba(85,230,255,.05),transparent 40%)}
+.chapter h3{color:#fff;font-size:1.1rem;margin:14px 0 8px}
+.chapter p{color:var(--muted);font-size:.92rem}
+.cnum{width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(85,230,255,.28);color:var(--cyan);
+  display:grid;place-items:center;font-size:.85rem;
+  background:rgba(85,230,255,.04)}
+.quote{border-right:3px solid var(--cyan);padding:16px 20px;margin:18px 0;
+  color:#d5e4f0;font-size:.95rem;background:rgba(85,230,255,.03);
+  border-radius:0 10px 10px 0}
+footer{text-align:center;color:var(--dim);font-size:.8rem;
+  padding:26px 0;border-top:1px solid var(--line);margin-top:50px}
+footer .name{color:var(--cyan);font-family:Consolas,monospace}
+@media(max-width:820px){nav{display:none}h2.title{font-size:1.7rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap topline">
+    <div class="brand">
+      <div class="logo">F</div>
+      <div><h1>LYTKUH <b>STUDIO</b></h1></div>
+    </div>
+    <nav>
+      <a href="index.html">خانه</a>
+      <a href="products.html">محصولات</a>
+      <a href="about.html">دربارهٔ ما</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<div class="kicker">STORY</div>
+<h2 class="title">از یک <span>پرامپت</span> تا یک پلتفرم</h2>
+
+<div class="chapter">
+<div class="cnum">۱</div>
+<h3>ایده</h3>
+<p>همه‌چیز با یک سندِ مستند شروع شد — نه با یک تبلیغ. چهار ماهِ فکر و نقشه‌کشیِ معماری، قبل از هر خطِ کد. سندی که یک سؤالِ ساده را جواب می‌داد: ابزارِ هوشمند چطور ساخته شود که واقعاً متعلق به کاربر باشد؟</p>
+</div>
+
+<div class="chapter">
+<div class="cnum">۲</div>
+<h3>شروع</h3>
+<p>یک نفر، یک سیستمِ ضعیف، و یک هدف: پلتفرمی که کاملاً روی کامپیوترِ خودش اجرا شود. بدونِ سرویسِ ابری، بدونِ هزینه، بدونِ وابستگی. روزِ اول یک زیرساختِ کامل شد — نه یک اپِ نصفه.</p>
+</div>
+
+<div class="chapter">
+<div class="cnum">۳</div>
+<h3>مسیرِ سخت</h3>
+<p>هفته‌ای که گذشت، با قطعیِ بی‌وقفه‌ی سرویس‌ها، باگ‌هایِ بایت‌به‌بایت، و شب‌هایِ شک گذشت. ولی هر شکِ شبانه، صبحِ بعد با یک برگشت جواب گرفت. قانون شد: <b>لاک‌پرت ادامه می‌دهد، مهم نیست چند بار قطع شود.</b></p>
+<div class="quote">«شاید از خیلی‌ها باهوش‌تر نیستم — ولی خوب بلدم از مغزم استفاده کنم.»</div>
+</div>
+
+<div class="chapter">
+<div class="cnum">۴</div>
+<h3>امروز</h3>
+<p>هشت ستونِ زنده، صدها تستِ سبز، سیستمِ افزونه، گاردِ قانون‌مند، و endpointِ شخصی که برنامه‌هایِ دیگر از آن جواب می‌گیرند. همه با یک نفر ساخته شد — و هنوز یک نفر است.</p>
+<div class="quote">«اونا همه باهم در مقابلِ من و مشاورم — و ما با هم پیروز می‌شویم.» 😄</div>
+</div>
+
+<div class="chapter">
+<div class="cnum">۵</div>
+<h3>قدمِ بعدی</h3>
+<p>پیش از هر چیز: <b>محصولِ نصب‌شدنی برای هر ویندوزی</b>. بعد فروشگاه، مغزهایِ تخصصی، و اقتصادی که پلتفرم را زنده نگه دارد. استقلال، نسخهٔ کامل شود.</p>
+</div>
+
+</main>
+
+<footer class="wrap">
+<span class="name">LYTKUH STUDIO</span> · © 2026 ·
+<a href="index.html" style="color:var(--muted);text-decoration:none">خانه</a>
+</footer>
+</body>
+</html>
