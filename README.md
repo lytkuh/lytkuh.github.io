@@ -123,7 +123,7 @@ GENERALIZE → SYSTEMIZE → VALIDATE → PRODUCTIZE
 
 <div align="center">
 
-**⚡ Made with 🔥 by LYTKUH — یک نفر، یک لاک‌پرت 🐢**
+**⚡ Made with 🔥 by LYTKUH — یک نفر، یک لاک‌پوشت 🐢**
 
 *«هرجا lytkuh دیدی، منم.»*
 
