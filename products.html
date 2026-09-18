@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="محصولات LYTKUH STUDIO — ForgeAI Studio و افزونه‌های آن.">
+<title>محصولات — LYTKUH STUDIO</title>
+<style>
+:root{--bg:#071018;--panel:#0b1c29;--line:#1a2f40;--cyan:#55e6ff;
+--text:#e8f6ff;--muted:#8ca4b8;--dim:#536a7e;--green:#61e6a0;--amber:#ffd166}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);
+  font-family:Tahoma,"Segoe UI",sans-serif;line-height:1.9;
+  background-image:
+    radial-gradient(900px 500px at 50% -100px,rgba(0,190,232,.08),transparent 70%),
+    radial-gradient(600px 400px at 100% 40%,rgba(85,230,255,.04),transparent 70%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.014) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.wrap{width:min(1050px,calc(100% - 40px));margin:auto}
+
+header{padding:22px 0;border-bottom:1px solid var(--line);
+  background:rgba(4,9,15,.5);backdrop-filter:blur(12px)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;border-radius:12px;
+  border:1px solid rgba(85,230,255,.25);
+  background:linear-gradient(145deg,#0b1c29,#071018);
+  display:grid;place-items:center;
+  font-family:Consolas,monospace;font-size:1.3rem;color:var(--cyan);
+  box-shadow:0 0 22px rgba(85,230,255,.12)}
+.brand h1{font-size:1.25rem;letter-spacing:.06em}
+.brand h1 b{color:var(--cyan)}
+.tag{font-size:.7rem;color:var(--dim);border:1px solid var(--line);
+  border-radius:99px;padding:3px 12px;margin-top:3px;display:inline-block}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;
+  padding:9px 16px;border:1px solid var(--line);border-radius:10px;transition:.18s}
+nav a:hover{color:#fff;border-color:rgba(85,230,255,.35)}
+
+.kicker{color:var(--cyan);font-size:.75rem;font-weight:700;
+  letter-spacing:.18em;display:flex;align-items:center;gap:10px;
+  margin:50px 0 14px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--cyan);
+  box-shadow:0 0 10px rgba(85,230,255,.5)}
+h2.title{font-size:2.2rem;margin-bottom:10px}
+h2.title span{color:var(--cyan)}
+.lead{color:var(--muted);max-width:680px;margin-bottom:50px}
+
+/* محصولِ اصلی — کارتِ بزرگ */
+.flagship{border:1px solid rgba(85,230,255,.2);border-radius:20px;
+  background:linear-gradient(135deg,rgba(9,25,35,.95),rgba(6,12,20,.96));
+  padding:36px;margin-bottom:24px;position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
+.flagship::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 15% 45%,rgba(0,207,255,.09),transparent 34%);
+  pointer-events:none}
+.flagship h3{font-size:1.9rem;color:#fff;margin-bottom:6px}
+.flagship h3 b{color:var(--cyan)}
+.flagship .sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+.feats{display:grid;gap:10px;margin-bottom:24px}
+.feat{display:flex;align-items:center;gap:10px;color:#cfe0ed;font-size:.9rem}
+.feat::before{content:"✓";color:var(--green);font-weight:700;flex:none}
+.pricebox{border:1px solid rgba(85,230,255,.25);border-radius:16px;
+  background:rgba(2,8,13,.5);padding:26px;text-align:center;
+  align-self:center;position:relative}
+.pricebox .price{font-size:2rem;color:var(--cyan);
+  font-family:Consolas,monospace;font-weight:700}
+.pricebox .per{color:var(--dim);font-size:.8rem;margin-bottom:14px}
+.pricebox .state{display:inline-block;font-size:.72rem;color:var(--amber);
+  border:1px solid rgba(255,209,102,.3);border-radius:99px;
+  padding:5px 16px;margin-top:14px}
+.pulse{display:flex;justify-content:center;gap:6px;margin-bottom:10px}
+.pulse i{width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 10px rgba(97,230,160,.7)}
+
+/* شبکهٔ افزونه‌ها */
+.sectionbar{display:flex;align-items:center;justify-content:space-between;
+  margin:40px 0 16px}
+.sectionbar .t{color:#9bb0c2;font-size:.8rem;font-weight:700;
+  letter-spacing:.14em;display:flex;gap:8px;align-items:center}
+.sectionbar .t::before{content:"●";color:var(--cyan);font-size:.6rem}
+.sectionbar .m{color:var(--dim);font-size:.75rem}
+.plugins{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin-bottom:24px}
+.plugin{background:linear-gradient(145deg,rgba(9,25,35,.85),rgba(5,12,19,.9));
+  border:1px solid var(--line);border-radius:14px;padding:20px;
+  transition:.2s;position:relative;overflow:hidden}
+.plugin:hover{border-color:rgba(85,230,255,.3);transform:translateY(-2px)}
+.plugin::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 100% 0,rgba(85,230,255,.05),transparent 40%)}
+.pico{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;
+  border:1px solid rgba(85,230,255,.22);color:var(--cyan);font-size:1rem;
+  background:rgba(85,230,255,.04);margin-bottom:12px}
+.plugin h4{font-size:.98rem;color:#fff;margin-bottom:6px}
+.plugin p{color:var(--muted);font-size:.82rem;margin-bottom:12px}
+.meta{display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--line);padding-top:12px}
+.status{font-size:.7rem;letter-spacing:.05em}
+.s-ready{color:var(--green)} .s-soon{color:var(--amber)}
+.pcost{font-size:.72rem;color:var(--dim);direction:ltr}
+
+/* مدل‌های پشتیبانی‌شده */
+.models{border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(145deg,rgba(9,25,35,.85),rgba(5,12,19,.9));
+  padding:24px;margin-bottom:60px}
+.models h4{color:#fff;font-size:1rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.mchip{font-size:.75rem;color:#cfe0ed;border:1px solid var(--line);
+  border-radius:8px;padding:6px 12px;background:rgba(2,8,13,.35)}
+.mchip b{color:var(--cyan);font-weight:400}
+
+footer{text-align:center;color:var(--dim);font-size:.8rem;
+  padding:26px 0;border-top:1px solid var(--line)}
+footer .name{color:var(--cyan);letter-spacing:.1em;font-family:Consolas,monospace}
+
+@media(max-width:860px){
+  nav{display:none}
+  .flagship{grid-template-columns:1fr;padding:24px}
+  .plugins{grid-template-columns:1fr}
+  h2.title{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap topline">
+    <div class="brand">
+      <div class="logo">F</div>
+      <div>
+        <h1>LYTKUH <b>STUDIO</b></h1>
+        <span class="tag">PRODUCTS</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">خانه</a>
+      <a href="about.html">دربارهٔ ما</a>
+      <a href="#plugins">افزونه‌ها</a>
+      <a href="https://github.com/lytkuh">گیت‌هاب</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="kicker">CATALOG</div>
+  <h2 class="title">محصولات و <span>افزونه‌ها</span></h2>
+  <p class="lead">هستهٔ پلتفرم رایگان است — قدرت از افزونه‌ها می‌آید. هر افزونه یک قابلیتِ تخصصی، با تأییدِ انسانی و اجرایِ لوکال.</p>
+
+  <!-- محصولِ اصلی -->
+  <div class="flagship">
+    <div>
+      <h3>Forge<b>AI</b> Studio</h3>
+      <div class="sub">پلتفرمِ هوش مصنوعیِ لوکال برایِ ویندوز ۱۱</div>
+      <div class="feats">
+        <div class="feat">چتِ استریم با مدل‌هایِ لوکال (Ollama) و زنجیرهٔ آنلاینِ اختیاری</div>
+        <div class="feat">ویرایشِ کد با پیشنهاد و تأییدِ خط‌به‌خط (Human Approval)</div>
+        <div class="feat">ترمینال، مدیریتِ مدل‌ها، endpoint شخصی :7800/v1</div>
+        <div class="feat">سیستمِ افزونه + گاردِ قانون‌مندِ داخلی</div>
+        <div class="feat">فارسی + انگلیسی · RTL کامل · آفلاین</div>
+        <div class="feat">بدونِ تلومتری — داده هرگز از ماشینِ تو بیرون نمی‌رود</div>
+      </div>
+    </div>
+    <div class="pricebox">
+      <div class="pulse"><i></i><i></i><i></i></div>
+      <div class="price">رایگان</div>
+      <div class="per">نسخهٔ ۰.۸ — Windows 11</div>
+      <div class="state">در حالِ تکمیلِ نسخهٔ ۱.۰</div>
+    </div>
+  </div>
+
+  <!-- افزونه‌ها -->
+  <div class="sectionbar" id="plugins">
+    <div class="t">PLUGINS</div>
+    <div class="m">هر افزونه — یک قابلیت · نصب رویِ هسته</div>
+  </div>
+
+  <div class="plugins">
+    <div class="plugin">
+      <div class="pico">◆</div>
+      <h4>News Forge</h4>
+      <p>خبر → مقاله با مدلِ خودت → انتشارِ خودکار در وردپرس. دو حالت: صفِ تأیید یا خودکار.</p>
+      <div class="meta"><span class="status s-soon">به‌زودی</span><span class="pcost">Premium</span></div>
+    </div>
+    <div class="plugin">
+      <div class="pico">🎬</div>
+      <h4>Media Forge</h4>
+      <p>تولیدِ تصویر و ویدئو با ComfyUI — به‌صورتِ لوکال و با پیش‌نمایشِ زنده.</p>
+      <div class="meta"><span class="status s-soon">به‌زودی</span><span class="pcost">Premium</span></div>
+    </div>
+    <div class="plugin">
+      <div class="pico">📊</div>
+      <h4>Trade Analyst</h4>
+      <p>تحلیلِ بازار با اندیکاتور و الگو — دستیارِ تصمیم، نه رباتِ معامله.</p>
+      <div class="meta"><span class="status s-soon">به‌زودی</span><span class="pcost">Premium</span></div>
+    </div>
+    <div class="plugin">
+      <div class="pico">🔤</div>
+      <h4>Prompt Forge</h4>
+      <p>ایده → پرامپتِ حرفه‌ای. کتابخانهٔ الگوها + بهینه‌سازِ لوکال.</p>
+      <div class="meta"><span class="status s-soon">به‌زودی</span><span class="pcost">Premium</span></div>
+    </div>
+    <div class="plugin">
+      <div class="pico">🧠</div>
+      <h4>Brain Packs</h4>
+      <p>مغزهایِ تخصصی: مالی، حقوقی، فروش، محتوا — که خودت بزرگشان می‌کنی.</p>
+      <div class="meta"><span class="status s-soon">به‌زودی</span><span class="pcost">Premium</span></div>
+    </div>
+    <div class="plugin">
+      <div class="pico">🌍</div>
+      <h4>Live Translator</h4>
+      <p>ترجمهٔ زنده: هر طرف به زبانِ خودش حرف می‌زند و می‌شنود.</p>
+      <div class="meta"><span class="status s-soon">به‌زودی</span><span class="pcost">Premium</span></div>
+    </div>
+  </div>
+
+  <!-- مدل‌ها -->
+  <div class="models">
+    <h4>مدل‌هایِ سازگار (نمونه)</h4>
+    <div class="chips">
+      <span class="mchip"><b>qwen</b> 2.5-coder</span>
+      <span class="mchip"><b>llama</b> 3.x</span>
+      <span class="mchip"><b>mistral</b> family</span>
+      <span class="mchip"><b>gemma</b> 2</span>
+      <span class="mchip"><b>deepseek</b> coder</span>
+      <span class="mchip"><b>phi</b> 3.5</span>
+      <span class="mchip">+ هر GGUF دیگر</span>
+    </div>
+  </div>
+
+</main>
+
+<footer class="wrap">
+  <span class="name">LYTKUH STUDIO</span> · © 2026 ·
+  <a href="index.html" style="color:var(--muted);text-decoration:none">خانه</a> ·
+  <a href="about.html" style="color:var(--muted);text-decoration:none">دربارهٔ ما</a>
+</footer>
+
+</body>
+</html>
