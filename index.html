@@ -2,21 +2,197 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>LYTKUH STUDIO</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="LYTKUH STUDIO — استودیوی نرم‌افزار هوشمند. ForgeAI Studio: هوش مصنوعی لوکال روی کامپیوتر خودت.">
+<title>LYTKUH STUDIO — هوش مصنوعیِ خودت، روی ماشینِ خودت</title>
 <style>
-body{background:#0b1c29;color:#e8f6ff;font-family:Tahoma;
-display:flex;min-height:100vh;margin:0;align-items:center;
-justify-content:center;text-align:center}
-h1{font-size:3rem;color:#55e6ff;letter-spacing:.2em}
-p{color:#8ca4b8}
+:root{--bg:#071018;--panel:#0b1c29;--line:#1a2f40;--cyan:#55e6ff;--text:#e8f6ff;--muted:#8ca4b8;--dim:#536a7e;--green:#61e6a0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:Tahoma,"Segoe UI",sans-serif;line-height:1.8;
+  min-height:100vh;
+  background-image:
+    radial-gradient(900px 500px at 50% -100px,rgba(0,190,232,.09),transparent 70%),
+    radial-gradient(600px 400px at 100% 40%,rgba(85,230,255,.05),transparent 70%);
+}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+
+header{padding:22px 0;border-bottom:1px solid var(--line);
+  background:rgba(4,9,15,.5);backdrop-filter:blur(12px)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;border-radius:12px;
+  border:1px solid rgba(85,230,255,.25);
+  background:linear-gradient(145deg,#0b1c29,#071018);
+  display:grid;place-items:center;
+  font-family:Consolas,monospace;font-size:1.3rem;color:var(--cyan);
+  box-shadow:0 0 22px rgba(85,230,255,.12)}
+.brand h1{font-size:1.25rem;font-weight:700;letter-spacing:.06em}
+.brand h1 b{color:var(--cyan);font-weight:700}
+.tag{font-size:.7rem;color:var(--dim);border:1px solid var(--line);
+  border-radius:99px;padding:3px 12px;margin-top:3px;display:inline-block}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;
+  padding:9px 16px;border:1px solid var(--line);border-radius:10px;
+  transition:.18s}
+nav a:hover{color:#fff;border-color:rgba(85,230,255,.35)}
+
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;
+  padding:70px 0 50px;align-items:center}
+.kicker{color:var(--cyan);font-size:.75rem;font-weight:700;
+  letter-spacing:.18em;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--cyan);
+  box-shadow:0 0 10px rgba(85,230,255,.5)}
+.hero h2{font-size:2.6rem;line-height:1.25;margin:18px 0 16px}
+.hero h2 span{color:var(--cyan)}
+.hero p{color:var(--muted);font-size:1rem;max-width:520px}
+.flow{display:flex;align-items:center;gap:10px;margin-top:32px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:8px;color:#cfe0ed;font-size:.78rem;
+  border:1px solid rgba(85,230,255,.22);border-radius:9px;padding:8px 14px;
+  background:rgba(85,230,255,.03)}
+.step i{font-style:normal;color:var(--cyan)}
+.arrow{width:26px;height:1px;
+  background:linear-gradient(90deg,rgba(85,230,255,.5),rgba(85,230,255,.08))}
+.hero-visual{border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(140deg,rgba(9,25,35,.9),rgba(6,12,20,.95));
+  padding:26px;position:relative;overflow:hidden}
+.hero-visual::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 90% 10%,rgba(85,230,255,.06),transparent 40%)}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{font-size:.72rem;color:var(--green);border:1px solid rgba(97,230,160,.2);
+  border-radius:99px;padding:5px 12px;background:rgba(97,230,160,.04);
+  display:flex;align-items:center;gap:6px}
+.chip::before{content:"●";font-size:.5rem}
+.big{font-family:Consolas,monospace;font-size:2rem;color:#fff;text-align:center;
+  padding:30px 10px;direction:ltr;letter-spacing:.1em;
+  border:1px solid var(--line);border-radius:12px;
+  background:rgba(2,8,13,.5);margin-bottom:14px}
+.big b{color:var(--cyan)}
+.sub{color:var(--dim);font-size:.72rem;text-align:center}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  padding:20px 0 60px}
+.card{background:linear-gradient(145deg,rgba(9,25,35,.85),rgba(5,12,19,.9));
+  border:1px solid var(--line);border-radius:14px;padding:22px;
+  transition:.2s;position:relative;overflow:hidden}
+.card:hover{border-color:rgba(85,230,255,.3);transform:translateY(-2px)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 100% 0,rgba(85,230,255,.05),transparent 40%)}
+.card h3{font-size:1rem;color:#fff;margin:12px 0 8px}
+.card p{color:var(--muted);font-size:.88rem}
+.ico{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+  border:1px solid rgba(85,230,255,.22);color:var(--cyan);font-size:1.1rem;
+  background:rgba(85,230,255,.04)}
+
+.status{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  border:1px solid rgba(85,230,255,.13);border-radius:14px;
+  background:linear-gradient(145deg,rgba(7,21,30,.9),rgba(4,11,17,.95));
+  padding:18px;margin-bottom:60px}
+.st{display:flex;align-items:center;gap:12px;padding:6px 14px}
+.st i{width:34px;height:34px;border-radius:50%;flex:none;
+  border:1px solid rgba(85,230,255,.2);display:grid;place-items:center;
+  color:var(--cyan);font-style:normal;font-size:.9rem}
+.st strong{display:block;font-size:.85rem}
+.st span{display:block;color:var(--dim);font-size:.72rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 9px rgba(97,230,160,.8);display:inline-block;margin-inline-start:6px}
+
+footer{text-align:center;color:var(--dim);font-size:.8rem;
+  padding:26px 0;border-top:1px solid var(--line)}
+footer .name{color:var(--cyan);letter-spacing:.1em;font-family:Consolas,monospace}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding:40px 0}
+  .cards{grid-template-columns:1fr}
+  .status{grid-template-columns:1fr 1fr}
+  .hero h2{font-size:1.9rem}
+  nav{display:none}
+}
 </style>
 </head>
 <body>
-<div>
-  <a href="about.html" style="color:#55e6ff">دربارهٔ ما ←</a>
-<h1>LYTKUH</h1>
-<p>هوش مصنوعیِ خودت، روی ماشینِ خودت.</p>
-<p>ForgeAI Studio — coming soon</p>
-</div>
+
+<header>
+  <div class="wrap topline">
+    <div class="brand">
+      <div class="logo">F</div>
+      <div>
+        <h1>LYTKUH <b>STUDIO</b></h1>
+        <span class="tag">LOCAL-FIRST INTELLIGENCE</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#product">محصول</a>
+      <a href="about.html">دربارهٔ ما</a>
+      <a href="https://github.com/lytkuh">گیت‌هاب</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="kicker">FORGEAI STUDIO PLATFORM</div>
+      <h2>هوش مصنوعیِ <span>خودت</span>،<br>روی ماشینِ <span>خودت</span>.</h2>
+      <p>پلتفرمِ کاملِ کدنویسی و اتوماسیون — چت، ویرایشِ کد، ترمینال و سیستمِ افزونه؛ همه روی کامپیوترِ خودت. بدونِ سرویسِ ابری، بدونِ هزینهٔ ماهانه، بدونِ تحریم.</p>
+      <div class="flow">
+        <div class="step"><i>◎</i> ASK</div><div class="arrow"></div>
+        <div class="step"><i>⌕</i> READ</div><div class="arrow"></div>
+        <div class="step"><i>✦</i> EDIT</div><div class="arrow"></div>
+        <div class="step"><i>⚙</i> RUN</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="chip-row">
+        <span class="chip">SYSTEM READY</span>
+        <span class="chip">LOCAL + SECURE</span>
+        <span class="chip">OFFLINE OK</span>
+      </div>
+      <div class="big">FORGE<b>AI</b> STUDIO</div>
+      <div class="sub">v0.8.0 — Windows 11 · فارسی · RTL</div>
+    </div>
+  </section>
+
+  <section class="cards" id="product">
+    <div class="card">
+      <div class="ico">◆</div>
+      <h3>پلتفرمِ افزونه</h3>
+      <p>سیستمِ کاملِ افزونه با تأییدِ انسانی — هر قابلیت یک افزونه؛ نصب، تنظیم و فروش.</p>
+    </div>
+    <div class="card">
+      <div class="ico">🔒</div>
+      <h3>حریمِ خصوصیِ ساختاری</h3>
+      <p>مدل‌ها رویِ کامپیوترِ خودت اجرا می‌شوند. داده‌های تو هرگز از ماشینِ تو خارج نمی‌شوند.</p>
+    </div>
+    <div class="card">
+      <div class="ico">🛡️</div>
+      <h3>گاردِ قانون‌مند</h3>
+      <p>هوش مصنوعی پیشنهاد می‌دهد؛ تصمیمِ نهایی همیشه با انسان. ویرایش‌ها پیش از اعمال، تأیید می‌شوند.</p>
+    </div>
+  </section>
+
+  <section class="status">
+    <div class="st"><i>◈</i><div><strong>PLATFORM <span class="dot"></span></strong><span>7 ستونِ زنده</span></div></div>
+    <div class="st"><i>⚙</i><div><strong>RUNTIME <span class="dot"></span></strong><span>PHP · MariaDB · Ollama</span></div></div>
+    <div class="st"><i>▣</i><div><strong>GUARDIAN <span class="dot"></span></strong><span>دفاعِ قانون‌مندِ فعال</span></div></div>
+    <div class="st"><i>◫</i><div><strong>API HUB <span class="dot"></span></strong><span>endpoint شخصی :7800/v1</span></div></div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span class="name">LYTKUH STUDIO</span> · © 2026 ·
+  <a href="about.html" style="color:var(--muted);text-decoration:none">دربارهٔ ما</a> ·
+  هوش مصنوعی پیشنهاد می‌دهد، تصمیم با انسان.
+</footer>
+
 </body>
 </html>
