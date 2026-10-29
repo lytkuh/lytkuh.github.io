@@ -84,7 +84,7 @@ FORGEAI STUDIO
 
 ## 🚀 نصب
 
-1. برو به صفحهٔ [Releases](https://github.com/lytkuh/forgeai-studio/releases/latest)
+1. برو به صفحهٔ [Releases](https://github.com/lytkuh/lytkuh.github.io/releases/latest)
 2. `ForgeAI-Studio-1.0.2-Setup.exe` را دانلود کن (یا نسخهٔ `Portable` بدون نصب)
 3. دوبار کلیک → تمام.
 
@@ -124,7 +124,7 @@ GENERALIZE → SYSTEMIZE → VALIDATE → PRODUCTIZE
 
 | | |
 |---|---|
-| ⬇️ دانلود | [Releases](https://github.com/lytkuh/forgeai-studio/releases) |
+| ⬇️ دانلود | [Releases](https://github.com/lytkuh/lytkuh.github.io/releases) |
 | 🏠 سایت | [lytkuh.github.io](https://lytkuh.github.io) |
 | 📖 داستان | [چگونه شروع شد](https://lytkuh.github.io/story.html) |
 | 🛒 محصولات | [افزونه‌ها و مغزها](https://lytkuh.github.io/products.html) |
