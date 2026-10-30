@@ -4,19 +4,7 @@
             <h2 class="campaign-title">کمپینِ افتتاحِ ForgeAI Studio — ۴۵٪ تخفیفِ یک‌هفته‌ای</h2>
                             <p class="campaign-sub">۴۵٪ تخفیفِ لایسنسِ استودیو — فقط یک هفته</p>
                     </div>
-        <div class="campaign-side">
-                            
-                <div class="campaign-code" data-testid="campaign-code">
-                    <code class="font-mono" data-copy-code="OPEN45">OPEN45</code>
-                    <button type="button" class="btn ghost sm" data-copy-code="OPEN45" aria-label="کد رو کپی کن">کد رو کپی کن</button>
-                    <span class="field-hint" data-copy-feedback="" hidden="">کپی شد! در مرحلهٔ پرداخت واردش کن.</span>
-                </div>
-                                        <p class="campaign-countdown" data-testid="campaign-countdown">
-                    <span data-countdown="" data-until="2026-11-05T00:00:00+00:00">۵ روز · ۲۱:۲:۲۲</span>
-                                            <span class="muted campaign-until">تا ۱۴۰۵/۰۸/۱۴</span>
-                                    </p>
-                        <a class="btn primary campaign-cta" href="https://lytkuh.ir/offer/open45" data-campaign-cta="" data-campaign="open45" data-kind="hero">با ۴۵٪ تخفیف بخر</a>
-        </div>
+        <div class="campaign-side">  <a class="btn primary campaign-cta" href="https://lytkuh.ir/offer/open45" data-campaign-cta="" data-campaign="open45" data-kind="hero">با ۴۵٪ تخفیف بخر</a> </div>
 </section>
 
 <div align="center">
