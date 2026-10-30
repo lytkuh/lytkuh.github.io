@@ -1,15 +1,17 @@
+
+
+<div align="center">
+
+# ⚡ LYTKUH STUDIO
+
 <section class="card campaign-hero" data-testid="campaign-hero" data-campaign="open45">
         <div class="campaign-copy">
             <span class="campaign-kicker"><svg class="icon i-20" aria-hidden="true" focusable="false"><use href="https://lytkuh.ir/icons.svg?v=1f67c3c5e7#spark"></use></svg>کمپین ویژه</span>
             <h2 class="campaign-title">کمپینِ افتتاحِ ForgeAI Studio — ۴۵٪ تخفیفِ یک‌هفته‌ای</h2>
                             <p class="campaign-sub">۴۵٪ تخفیفِ لایسنسِ استودیو — فقط یک هفته</p>
                     </div>
-        <div class="campaign-side">  <a class="btn primary campaign-cta" href="https://lytkuh.ir/offer/open45" data-campaign-cta="" data-campaign="open45" data-kind="hero">با ۴۵٪ تخفیف بخر</a> </div>
+        <div align="center">  <a class="btn primary campaign-cta" href="https://lytkuh.ir/offer/open45" data-campaign-cta="" data-campaign="open45" data-kind="hero">با ۴۵٪ تخفیف بخر</a> </div>
 </section>
-
-<div align="center">
-
-# ⚡ LYTKUH STUDIO
 
 ### هوش مصنوعیِ خودت. روی ماشینِ خودت.
 
