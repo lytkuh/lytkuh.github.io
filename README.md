@@ -1,20 +1,16 @@
-
-
 <div align="center">
 
 # ⚡ LYTKUH STUDIO
 
-<section class="card campaign-hero" data-testid="campaign-hero" data-campaign="open45">
-        <div class="campaign-copy">
-            <h2 class="campaign-title">کمپینِ افتتاحِ ForgeAI Studio — ۴۵٪ تخفیفِ یک‌هفته‌ای</h2>
-                            <p class="campaign-sub">۴۵٪ تخفیفِ لایسنسِ استودیو — فقط یک هفته</p>
-                    </div>
-        <div align="center">  <a class="btn primary campaign-cta" href="https://lytkuh.ir/offer/open45" data-campaign-cta="" data-campaign="open45" data-kind="hero">با ۴۵٪ تخفیف بخر</a> </div>
-</section>
-
 ### هوش مصنوعیِ خودت. روی ماشینِ خودت.
 
 **Your AI. Your machine. Your data. Your rules.**
+
+<img src="assets/images/og-image.jpg" alt="FORGEAI HUB — فضای کاری هوش مصنوعی" width="100%">
+
+> 🔥 **کمپینِ افتتاحِ ForgeAI Studio — ۴۵٪ تخفیفِ یک‌هفته‌ای**
+> ۴۵٪ تخفیفِ لایسنسِ استودیو — فقط یک هفته
+> **[با ۴۵٪ تخفیف بخر ←](https://lytkuh.ir/offer/open45)**
 
 <p>
   <img src="https://img.shields.io/badge/version-1.0.2-61e6a0?style=flat-square" alt="v1.0.2">

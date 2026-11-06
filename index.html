@@ -2,224 +2,612 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="LYTKUH STUDIO — استودیوی نرم‌افزار هوشمند. ForgeAI Studio: هوش مصنوعی لوکال روی کامپیوتر خودت.">
-<title>LYTKUH STUDIO — هوش مصنوعیِ خودت، روی ماشینِ خودت</title>
-<link rel="icon" href="favicon.png">
-<style>
-:root{--bg:#071018;--panel:#0b1c29;--line:#1a2f40;--cyan:#55e6ff;--text:#e8f6ff;--muted:#8ca4b8;--dim:#536a7e;--green:#61e6a0}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:var(--bg);color:var(--text);
-  font-family:Tahoma,"Segoe UI",sans-serif;line-height:1.8;
-  min-height:100vh;
-  background-image:
-    radial-gradient(900px 500px at 50% -100px,rgba(0,190,232,.09),transparent 70%),
-    radial-gradient(600px 400px at 100% 40%,rgba(85,230,255,.05),transparent 70%);
-}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
-  background-image:
-    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
-  background-size:48px 48px;
-  mask-image:linear-gradient(to bottom,black,transparent 85%)}
-.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
-
-header{padding:22px 0;border-bottom:1px solid var(--line);
-  background:rgba(4,9,15,.5);backdrop-filter:blur(12px)}
-.topline{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:14px}
-.logo{width:46px;height:46px;border-radius:12px;
-  border:1px solid rgba(85,230,255,.25);
-  background:linear-gradient(145deg,#0b1c29,#071018);
-  display:grid;place-items:center;
-  font-family:Consolas,monospace;font-size:1.3rem;color:var(--cyan);
-  box-shadow:0 0 22px rgba(85,230,255,.12)}
-.brand h1{font-size:1.25rem;font-weight:700;letter-spacing:.06em}
-.brand h1 b{color:var(--cyan);font-weight:700}
-.tag{font-size:.7rem;color:var(--dim);border:1px solid var(--line);
-  border-radius:99px;padding:3px 12px;margin-top:3px;display:inline-block}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;
-  padding:9px 16px;border:1px solid var(--line);border-radius:10px;
-  transition:.18s}
-nav a:hover{color:#fff;border-color:rgba(85,230,255,.35)}
-
-.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;
-  padding:70px 0 50px;align-items:center}
-.kicker{color:var(--cyan);font-size:.75rem;font-weight:700;
-  letter-spacing:.18em;display:flex;align-items:center;gap:10px}
-.kicker::before{content:"";width:26px;height:2px;background:var(--cyan);
-  box-shadow:0 0 10px rgba(85,230,255,.5)}
-.hero h2{font-size:2.6rem;line-height:1.25;margin:18px 0 16px}
-.hero h2 span{color:var(--cyan)}
-.hero p{color:var(--muted);font-size:1rem;max-width:520px}
-.flow{display:flex;align-items:center;gap:10px;margin-top:32px;flex-wrap:wrap}
-.step{display:flex;align-items:center;gap:8px;color:#cfe0ed;font-size:.78rem;
-  border:1px solid rgba(85,230,255,.22);border-radius:9px;padding:8px 14px;
-  background:rgba(85,230,255,.03)}
-.step i{font-style:normal;color:var(--cyan)}
-.arrow{width:26px;height:1px;
-  background:linear-gradient(90deg,rgba(85,230,255,.5),rgba(85,230,255,.08))}
-.hero-visual{border:1px solid var(--line);border-radius:18px;
-  background:linear-gradient(140deg,rgba(9,25,35,.9),rgba(6,12,20,.95));
-  padding:26px;position:relative;overflow:hidden}
-.hero-visual::after{content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at 90% 10%,rgba(85,230,255,.06),transparent 40%)}
-.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.chip{font-size:.72rem;color:var(--green);border:1px solid rgba(97,230,160,.2);
-  border-radius:99px;padding:5px 12px;background:rgba(97,230,160,.04);
-  display:flex;align-items:center;gap:6px}
-.chip::before{content:"●";font-size:.5rem}
-.big{font-family:Consolas,monospace;font-size:2rem;color:#fff;text-align:center;
-  padding:30px 10px;direction:ltr;letter-spacing:.1em;
-  border:1px solid var(--line);border-radius:12px;
-  background:rgba(2,8,13,.5);margin-bottom:14px}
-.big b{color:var(--cyan)}
-.sub{color:var(--dim);font-size:.72rem;text-align:center}
-.cta{display:inline-flex;align-items:center;gap:8px;margin-top:26px;
-  color:#04121b;background:linear-gradient(135deg,var(--green),#3fd489);
-  font-weight:700;font-size:.95rem;text-decoration:none;
-  border-radius:12px;padding:13px 26px;
-  box-shadow:0 6px 24px rgba(97,230,160,.25);transition:.18s}
-.cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(97,230,160,.35)}
-.release{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
-  border:1px solid rgba(97,230,160,.22);border-radius:14px;
-  background:linear-gradient(145deg,rgba(9,25,35,.9),rgba(5,12,19,.92));
-  padding:18px 22px;margin-bottom:22px}
-.release strong{color:#fff;font-size:.98rem}
-.release span{color:var(--muted);font-size:.82rem;display:block}
-.rel-btn{flex:none;color:#04121b;background:linear-gradient(135deg,var(--green),#3fd489);
-  border-radius:10px;padding:11px 22px;font-weight:700;text-decoration:none;font-size:.9rem;
-  box-shadow:0 6px 22px rgba(97,230,160,.25);transition:.18s}
-.rel-btn:hover{transform:translateY(-2px)}
-
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
-  padding:20px 0 60px}
-.card{background:linear-gradient(145deg,rgba(9,25,35,.85),rgba(5,12,19,.9));
-  border:1px solid var(--line);border-radius:14px;padding:22px;
-  transition:.2s;position:relative;overflow:hidden}
-.card:hover{border-color:rgba(85,230,255,.3);transform:translateY(-2px)}
-.card::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(circle at 100% 0,rgba(85,230,255,.05),transparent 40%)}
-.card h3{font-size:1rem;color:#fff;margin:12px 0 8px}
-.card p{color:var(--muted);font-size:.88rem}
-.ico{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
-  border:1px solid rgba(85,230,255,.22);color:var(--cyan);font-size:1.1rem;
-  background:rgba(85,230,255,.04)}
-
-.status{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
-  border:1px solid rgba(85,230,255,.13);border-radius:14px;
-  background:linear-gradient(145deg,rgba(7,21,30,.9),rgba(4,11,17,.95));
-  padding:18px;margin-bottom:60px}
-.st{display:flex;align-items:center;gap:12px;padding:6px 14px}
-.st i{width:34px;height:34px;border-radius:50%;flex:none;
-  border:1px solid rgba(85,230,255,.2);display:grid;place-items:center;
-  color:var(--cyan);font-style:normal;font-size:.9rem}
-.st strong{display:block;font-size:.85rem}
-.st span{display:block;color:var(--dim);font-size:.72rem}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--green);
-  box-shadow:0 0 9px rgba(97,230,160,.8);display:inline-block;margin-inline-start:6px}
-
-footer{text-align:center;color:var(--dim);font-size:.8rem;
-  padding:26px 0;border-top:1px solid var(--line)}
-footer .name{color:var(--cyan);letter-spacing:.1em;font-family:Consolas,monospace}
-
-@media(max-width:860px){
-  .hero{grid-template-columns:1fr;padding:40px 0}
-  .cards{grid-template-columns:1fr}
-  .status{grid-template-columns:1fr 1fr}
-  .hero h2{font-size:1.9rem}
-  nav{display:none}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGEAI HUB — هوش مصنوعیِ خودت، روی ماشینِ خودت | LYTKUH STUDIO</title>
+<meta name="description" content="LYTKUH STUDIO — استودیوی نرم‌افزار هوشمند. ForgeAI Studio: هوش مصنوعی لوکال روی کامپیوتر خودت — بدون اشتراک، بدون ارسال داده، بدون تحریم.">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta property="og:site_name" content="LYTKUH STUDIO">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FORGEAI HUB — هوش مصنوعیِ خودت، روی ماشینِ خودت">
+<meta property="og:description" content="ForgeAI Studio: هوش مصنوعی لوکال روی کامپیوتر خودت — بدون اشتراک، بدون ارسال داده، بدون تحریم.">
+<meta property="og:url" content="https://lytkuh.github.io/">
+<meta property="og:image" content="https://lytkuh.github.io/assets/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- ═══ هدر — ناوبار کوک‌پیت ═══ -->
+<div id="app" dir="rtl" lang="fa">
+<header class="bar" id="bar">
+    <div class="bar-inner">
 
-<header>
-  <div class="wrap topline">
-    <div class="brand">
-      <div class="logo">F</div>
-      <div>
-        <h1>LYTKUH <b>STUDIO</b></h1>
-        <span class="tag">LOCAL-FIRST INTELLIGENCE</span>
+      <svg class="tab" viewBox="0 0 520 64" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="gStroke" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="520" y2="0">
+            <stop offset="0" stop-color="#19dcf2" stop-opacity="0"/>
+            <stop offset="0.16" stop-color="#19dcf2" stop-opacity="0.45"/>
+            <stop offset="0.34" stop-color="#19dcf2" stop-opacity="0.65"/>
+            <stop offset="0.5" stop-color="#a5f7ff" stop-opacity="1"/>
+            <stop offset="0.66" stop-color="#19dcf2" stop-opacity="0.65"/>
+            <stop offset="0.84" stop-color="#19dcf2" stop-opacity="0.45"/>
+            <stop offset="1" stop-color="#19dcf2" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="gFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#19dcf2" stop-opacity="0"/>
+            <stop offset="1" stop-color="#19dcf2" stop-opacity="0.11"/>
+          </linearGradient>
+          <filter id="gBlur" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="3.2"/></filter>
+          <filter id="gBlur2" x="-50%" y="-300%" width="200%" height="700%"><feGaussianBlur stdDeviation="2"/></filter>
+        </defs>
+        <path d="M0 14 H80 Q88 14 93 19 L137 57 Q141 61 147 61 H373 Q379 61 383 57 L427 19 Q432 14 440 14 H520" fill="none" stroke="url(#gStroke)" stroke-width="5" opacity="0.5" filter="url(#gBlur)" vector-effect="non-scaling-stroke"/>
+        <path d="M0 14 H80 Q88 14 93 19 L137 57 Q141 61 147 61 H373 Q379 61 383 57 L427 19 Q432 14 440 14 H520" fill="none" stroke="url(#gStroke)" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+        <ellipse class="dot" cx="260" cy="61" rx="18" ry="2" fill="#d4fcff" filter="url(#gBlur2)"/>
+      </svg>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="باز کردن منو">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="b-open" d="M4 7h16M4 12h16M4 17h16"/><path class="b-close" d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <a class="logo" href="index.html" aria-label="FORGEAI HUB">FORGE<span>AI</span> HUB</a>
+
+      <nav class="menu" id="menu" aria-label="Main">
+
+        <ul class="primary">
+          <li><a class="item" href="index.html" data-key="home" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+            <span data-fa="خانه" data-en="Home">خانه</span></a></li>
+          <li><a class="item" href="index.html#features" data-key="products">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            <span data-fa="محصولات" data-en="Products">محصولات</span></a></li>
+          <li class="nav-drop">
+            <a class="item" href="#"><svg viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-8 8v5a3 3 0 0 0 3 3h1.5v-7H6v-1a6 6 0 0 1 12 0v1h-2.5v7H17a3 3 0 0 0 3-3v-5a8 8 0 0 0-8-8z"/></svg><span>پشتیبانی</span><svg class="ic--chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a>
+            <div class="drop-wrap">
+              <ul class="drop-panel">
+                <li><a href="roadmap.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11zm0-8.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" fill-rule="evenodd"/></svg></span>نقشهٔ راه</a></li>
+                <li><a href="story.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg></span>داستان</a></li>
+                <li><a href="https://lytkuh.ir/guide" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm1.4 6.4h-2.8V5.8h2.8v2.6zM9.3 10.2h3.5v8h-3.5z" fill-rule="evenodd"/></svg></span>راهنما</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="item" href="about.html" data-key="about">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span data-fa="درباره ما" data-en="About">درباره ما</span></a></li>
+          <li><a class="item" href="index.html#panel" data-key="cart">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span data-fa="خرید" data-en="Cart">خرید</span></a></li>
+        </ul>
+
+        <div class="util">
+          <a class="item pill" href="#" data-key="exit">
+            <svg class="flip" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+            <span data-fa="خروج" data-en="Exit">خروج</span></a>
+          <span class="sep" aria-hidden="true"></span>
+          <a class="item pill" href="about.html" data-key="about2">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span data-fa="درباره ما" data-en="About">درباره ما</span></a>
+          <a class="item pill" href="https://lytkuh.ir/guide" target="_blank" rel="noopener" data-key="guide2">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+            <span data-fa="راهنما" data-en="Guide">راهنما</span></a>
+          <span class="sep" aria-hidden="true"></span>
+          <a class="item pill strong" href="#" data-key="lang">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm4.3 6.2h-2.9c-.3-1.6-.9-3-1.7-4 2 .6 3.7 2.1 4.6 4zM12 4.9c.9 1 1.6 2.4 2 4.3h-4c.4-1.9 1.1-3.3 2-4.3zM5.2 10.2h1.2c.1 1.4.4 2.8.8 4-1-.9-1.7-2.4-2-4zm0 3.6h1.2c.1 1.4.4 2.8.8 4-1-.9-1.7-2.4-2-4zm2.5 0h8.6c-.5 3.2-2.3 6-4.3 6s-3.8-2.8-4.3-6zm9.9 0h1.2c-.3 1.6-1 3.1-2 4 .4-1.2.7-2.6.8-4zm0-3.6c-.1-1.4-.4-2.8-.8-4 1 .9 1.7 2.4 2 4h-1.2z" fill-rule="evenodd"/></svg>
+            <span data-fa="English" data-en="فارسی">English</span></a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" role="img" aria-label="اتاق کار هوش مصنوعی فورج"></div>
+  <div class="hero-vignette"></div>
+
+  <div class="container">
+
+    <!-- بنر کمپین -->
+    <div class="promo" id="promo">
+      <img class="promo-frame" src="assets/images/border.png" alt="" aria-hidden="true" draggable="false">
+      <div class="promo-in">
+
+        <div class="promo-text">
+          <h2 class="promo-title">کمپین افتتاح <span class="accent" dir="ltr">ForgeAI Studio</span> — تخفیف یک‌هفته‌ای</h2>
+          <p class="promo-sub">تخفیف ۴۵٪ لایسنس استودیو — فقط یک هفته</p>
+        </div>
+
+        <div class="promo-cube">
+          <img src="assets/images/b.png" alt="مکعب کد فورج" draggable="false">
+        </div>
+
+        <div class="promo-code">
+          <div class="promo-code-row">
+            <span class="promo-chip" dir="ltr">OPEN45</span>
+            <button class="promo-copy" id="copyCode" type="button">کد رو کپی کن</button>
+          </div>
+          <p class="promo-price promo-price--old"><s>تومان ۴,۲۴۸,۰۰۰</s></p>
+          <p class="promo-price promo-price--new">۲,۲۴۰,۰۰۰ تومان</p>
+          <a class="promo-buy" href="https://lytkuh.ir/offer/open45" target="_blank" rel="noopener">
+            با ۴۵٪ تخفیف بخر
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 5 13.5h5.5L11 22l8-11.5h-5.5z"/></svg></span>
+          </a>
+        </div>
       </div>
     </div>
-    <nav>
-      <a href="products.html">محصول</a>
+
+    <!-- متن هیرو -->
+    <div class="hero-copy">
+      <h1 class="hero-title">
+        <span class="line">هوش مصنوعی خودت،</span>
+        <span class="line">روی ماشینِ <span class="accent">خودت.</span></span>
+      </h1>
+      <p class="hero-lead">
+        فروشگاه ای‌آی استودیو؛ اتاق کارِ هوش مصنوعی که کاملاً روی ویندوز خودت اجرا می‌شود —
+        <br>
+        بدون سرور ابری، بدون اشتراک اجباری، بدون خروج داده‌های تو.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn--solid" href="#panel">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M7 4.8v14.4L19.2 12z"/></svg></span>
+          مشاهدهٔ پلن‌ها
+        </a>
+        <a class="btn btn--ghost" href="#truth">
+          <span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M4 9.3h16M9.3 4v16"/></svg></span>
+          جدول صداقت
+        </a>
+      </div>
+
+      <div class="hero-verbs" dir="ltr">
+        <span class="verb">RUN</span><span class="dash">–</span>
+        <span class="verb">EDIT</span><span class="dash">–</span>
+        <span class="verb">READ</span><span class="dash">–</span>
+        <span class="verb">ASK</span>
+      </div>
+
+      <div class="hero-badges">
+        <span class="badge badge--green">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 5 5.8v5.4c0 4.4 3 8.1 7 9.3 4-1.2 7-4.9 7-9.3V5.8z"/><path d="m9.2 11.8 2 2 3.6-4"/></svg></span>
+          هسته: رایگان برای همیشه
+        </span>
+        <span class="badge badge--yellow">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 5 13.5h5.5L11 22l8-11.5h-5.5z"/></svg></span>
+          داده‌ها: روی ماشینِ خودت
+        </span>
+        <span class="badge badge--cyan">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M3.5 6.5h8v8h-8zM12.5 6.5h8v8h-8zM3.5 15.5h8v3h-8zM12.5 15.5h8v3h-8z"/></svg></span>
+          ویندوز ۱۰ و ۱۱
+        </span>
+      </div>
+    </div>
+
+    <button class="hero-scroll" id="heroScroll" type="button" aria-label="اسکرول به پایین">
+      <svg viewBox="0 0 24 24"><path d="m5 6 7 6 7-6"/><path d="m5 12 7 6 7-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<div class="sheet">
+<section class="section" id="features">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 class="section-title">نگاهی به محصول</h2>
+        <p class="section-sub">چهار نمایی واقعی از خود برنامه — نه موکاپ، نه رندر.</p>
+      </header>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <span class="feature-ic"><svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H9l-4.2 3.2a.5.5 0 0 1-.8-.4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg></span>
+          <h3 class="feature-title">چت با بلوک کد رنگی</h3>
+          <p class="feature-path" dir="ltr">assets/shots/forge-chat.png</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span class="feature-ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 9h17M9 9v11"/></svg></span>
+          <h3 class="feature-title">پنل <span dir="ltr">providers</span> با بنچ‌ها</h3>
+          <p class="feature-path" dir="ltr">assets/shots/forge-providers.png</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span class="feature-ic"><svg viewBox="0 0 24 24"><path d="M13 2 5 13.5h5.5L11 22l8-11.5h-5.5z"/></svg></span>
+          <h3 class="feature-title">مهارت <span dir="ltr">Run-modal</span></h3>
+          <p class="feature-path" dir="ltr">assets/shots/forge-skill-run.png</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span class="feature-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+          <h3 class="feature-title">زمان‌بند/صف تایید</h3>
+          <p class="feature-path" dir="ltr">assets/shots/forge-scheduler.png</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PREVIEW ═══════════ -->
+  <section class="section" id="preview">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 class="section-title">پیش‌نمایش</h2>
+        <p class="section-sub">سه نگاه سریع به روند کار.</p>
+      </header>
+
+      <div class="preview-grid">
+
+        <!-- CHAT -->
+        <figure class="term-fig reveal">
+          <div class="term">
+          <div class="term-head">
+            <span class="term-dots" dir="ltr"><i></i><i></i><i></i></span>
+            <span class="term-label" dir="ltr">CHAT</span>
+          </div><div class="term-body">
+            <div class="chat-bubble">تابعی بنویس که فایل را بخواند.</div>
+            <div class="chat-reply">
+              <p class="chat-note">این هم یک نمونه:</p>
+              <pre class="chat-code" dir="ltr"><code><span class="tok-kw">def</span> read(path):
+  <span class="tok-kw">return</span> open(path).read()</code></pre>
+            </div>
+          </div>
+          </div>
+          <figcaption class="term-caption">چت و کد با مدل محلی</figcaption>
+        </figure>
+
+        <!-- DIFF -->
+        <figure class="term-fig reveal">
+          <div class="term">
+          <div class="term-head">
+            <span class="term-dots" dir="ltr"><i></i><i></i><i></i></span>
+            <span class="term-label" dir="ltr">DIFF</span>
+          </div><div class="term-body">
+            <pre class="term-lines" dir="ltr"><code><span class="ln ln-meta">@@ dev/benchmark.py</span>
+<span class="ln ln-del">- result = run_test(model)</span>
+<span class="ln ln-add">+ result = await run_test(model)</span>
+<span class="ln ln-add">+ return {"status": "completed"}</span></code></pre>
+            <div class="diff-actions">
+              <div class="diff-verdict">
+                <span>پیشنهاد</span>
+                <span>تغییر</span>
+              </div>
+              <div class="diff-chip" dir="ltr">APPROVE · REJECT ·<br>EDIT</div>
+            </div>
+          </div>
+          </div>
+          <figcaption class="term-caption">پیش‌نمایش تغییرات پیش از اعمال</figcaption>
+        </figure>
+
+        <!-- TERMINAL -->
+        <figure class="term-fig reveal">
+          <div class="term">
+          <div class="term-head">
+            <span class="term-dots" dir="ltr"><i></i><i></i><i></i></span>
+            <span class="term-label" dir="ltr">TERMINAL</span>
+          </div><div class="term-body">
+            <pre class="term-lines" dir="ltr"><code><span class="ln"><span class="tok-ps">$</span> python -m pytest tests/</span></code></pre>
+            <p class="term-ok" dir="ltr">✓ 12 passed — exit 0</p>
+            <div class="term-ask">
+              <span class="term-allow" dir="ltr">ALLOW · DENY</span>
+              <span class="term-q">اجازهٔ نوشتن فایل؟</span>
+            </div>
+          </div>
+          </div>
+          <figcaption class="term-caption">فرمان‌ها با تایید انسانی</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PANEL ═══════════ -->
+  <section class="section" id="panel">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 class="section-title">پنل مدیریت؛ ارائه‌دهنده‌ها، اتصال‌ها و رویدادها در یک نگاه</h2>
+        <p class="section-sub">نمای از داشبوردی که مدل‌ها، نقطه‌های اتصال، زمان‌بند و وضعیت لایسنس را یکجا نشان می‌دهد.</p>
+        <p class="notice reveal">نمونهٔ شماتیک؛ اعداد، آدرس‌ها و رویدادها نمایشی</p>
+      </header>
+
+      <div class="panel reveal">
+        <aside class="panel-side">
+          <div class="panel-brand">
+            <strong dir="ltr">FORGE AI</strong>
+            <span dir="ltr">LOCAL CODING STUDIO</span>
+          </div>
+          <nav class="panel-menu">
+            <a class="pm-item is-active" href="#panel"><span class="pm-label">داشبورد</span><span class="pm-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">ارائه‌دهنده‌ها</span><span class="pm-ic"><svg viewBox="0 0 24 24"><path d="M12 4 20 12 12 20 4 12z"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">نقطه‌های اتصال</span><span class="pm-ic"><svg viewBox="0 0 24 24"><path d="M12 4 20 12 12 20 4 12z"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">مدل‌ها</span><span class="pm-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2.5"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">مهارت‌ها</span><span class="pm-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">افزونه‌ها</span><span class="pm-ic"><svg viewBox="0 0 24 24"><path d="M9 4v3M15 4v3M9 17v3M15 17v3M4 9h3M4 15h3M17 9h3M17 15h3"/><rect x="7" y="7" width="10" height="10" rx="2"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">زمان‌بند</span><span class="pm-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">لایسنس</span><span class="pm-ic"><svg viewBox="0 0 24 24"><rect x="4.5" y="7" width="15" height="10" rx="2"/><circle cx="12" cy="12" r="2"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">گزارش‌ها</span><span class="pm-ic"><svg viewBox="0 0 24 24"><path d="M4 17V9M9.3 17V5M14.7 17v-8M20 17v-4"/></svg></span></a>
+            <a class="pm-item" href="#panel"><span class="pm-label">تنظیمات</span><span class="pm-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.6M12 17.9v2.6M3.5 12h2.6M17.9 12h2.6M6 6l1.9 1.9M16.1 16.1 18 18M18 6l-1.9 1.9M7.9 16.1 6 18"/></svg></span></a>
+          </nav>
+        </aside>
+
+        <div class="panel-main">
+
+          <div class="plan-row" id="tab-plans">
+            <div class="plan-card plan-card--empty" aria-hidden="true"></div>
+            <div class="plan-card">
+              <span class="plan-ic"><svg viewBox="0 0 24 24"><path d="M13 2 5 13.5h5.5L11 22l8-11.5h-5.5z"/></svg></span>
+              <h4>حرفه‌ای</h4>
+              <p>برای حرفه‌ای‌ها</p>
+            </div>
+            <div class="plan-card">
+              <span class="plan-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12h6M12 9v6"/></svg></span>
+              <h4>استاندارد</h4>
+              <p>برای توسعه‌دهنگی</p>
+            </div>
+            <div class="plan-card">
+              <span class="plan-ic plan-ic--green"><svg viewBox="0 0 24 24"><path d="M13 2 5 13.5h5.5L11 22l8-11.5h-5.5z"/></svg></span>
+              <h4>پایه‌ای</h4>
+              <p>برای شروع‌ها</p>
+            </div>
+          </div>
+
+          <div class="check-table">
+            <div class="check-row">
+              <p class="check-label">پشتیبانی مردمی</p>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="dots"></span>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="mark mark--white"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+            </div>
+            <div class="check-row">
+              <p class="check-label">تکمیل مدل‌های <span dir="ltr">AI</span></p>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="dots"></span>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="mark mark--white"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+            </div>
+            <div class="check-row">
+              <p class="check-label">اجرای مصرف و نظارت</p>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="dots"></span>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="mark mark--white"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+            </div>
+            <div class="check-row">
+              <p class="check-label">به‌روزرسانی منظم</p>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="dots"></span>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="cell-vals"><span class="cv cv--cyan">۱۰۰ گیگ</span><span class="cv">۵۰ گیگ</span></span>
+            </div>
+            <div class="check-row">
+              <p class="check-label">به‌روزرسانی خودکار</p>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="dots"></span>
+              <span class="mark mark--green"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></svg></span>
+              <span class="cell-vals"><span class="cv">۳۰ روز</span><span class="cv cv--yellow">نامحدود</span></span>
+            </div>
+          </div>
+
+          <div class="plan-actions">
+            <a class="btn btn--outline btn--sm" href="#panel">انتخاب پلان</a>
+            <a class="btn btn--outline btn--sm" href="#panel">انتخاب پلان</a>
+            <a class="btn btn--outline btn--sm" href="#panel">انتخاب پلان</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TRUTH TABLE ═══════════ -->
+  <section class="section" id="truth">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2 class="section-title">جدول صداقت</h2>
+        <p class="section-sub section-sub--wide">قبل از هر قول، مرزها را می‌گوییم. این جدول دقیقاً می‌گوید چه‌چیزی آماده‌ی آفلاین کار می‌کند، چه‌چیزی اینترنت می‌خواهد، و چه محدودیت‌هایی امروز واقعی است.</p>
+      </header>
+
+      <div class="truth-grid">
+        <article class="truth-card reveal">
+          <h3 class="truth-title">
+            <span class="truth-ic"><svg viewBox="0 0 24 24"><path d="M2.5 9.5a14 14 0 0 1 19 0M5.5 13a9.5 9.5 0 0 1 13 0M8.5 16.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19.4" r="1.3"/></svg></span>
+            کاملاً آفلاین (بدون اینترنت)
+          </h3>
+          <ul class="truth-list">
+            <li>گفت‌وگو با مدل‌های محلی <span dir="ltr">ForgeAI</span> — همهٔ پایه‌ها روی خودت می‌ماند</li>
+            <li>فضای کار و ویرایش کد <span dir="ltr">(Workspace)</span></li>
+            <li>ترمینال و اجرای فرمان‌های محلی</li>
+            <li>تم‌ها، زبان فارسی/انگلیسی، ساخت پلاگین</li>
+            <li>هستهٔ برنامه — برای همیشه رایگان، هیچ‌وقت قفل نمی‌شود</li>
+          </ul>
+        </article>
+
+        <article class="truth-card reveal">
+          <h3 class="truth-title">
+            <span class="truth-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.3 4 5.2 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.2-4-8.5s1.4-6.2 4-8.5z"/></svg></span>
+            فقط با اینترنت
+          </h3>
+          <ul class="truth-list">
+            <li>فعال‌سازی لایسنس (یک بار برای هر ماشین)</li>
+            <li>بررسی ابطال لایسنس وقتی آنلاین شوید (اختیاری — آنلاین هم با مهلت اعتبار کار می‌کند)</li>
+            <li>مدل‌های ابری اختیاری (کلید <span dir="ltr">API</span> خودت)</li>
+            <li>دریافت به‌روزرسانی‌ها و افزونه‌های جدید</li>
+          </ul>
+        </article>
+
+        <article class="truth-card reveal">
+          <h3 class="truth-title">
+            <span class="truth-ic"><svg viewBox="0 0 24 24"><path d="M12 4 2.8 19.5h18.4z"/><path d="M12 10v4.2M12 16.8v.2"/></svg></span>
+            محدودیت‌های شناخته‌شده (۷)
+          </h3>
+          <ul class="truth-list">
+            <li>پرداخت آنلاین هنوز فعال نیست — ایمیل بگذار تا خبر بدهیم (بدون فروش صوری)</li>
+            <li>درگاه پرداخت ایرانی در فاز بعدی اضافه می‌شود</li>
+            <li>بازارچهٔ افزونه‌ها <span dir="ltr">(Trade House)</span> بعد از این فاز می‌آید</li>
+            <li>فعالاً فقط ویندوز؛ نسخهٔ لینوکس/مک در نقشهٔ راه است</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<!-- مشبک شش‌ضلعی (طرح کاربر) -->
+<i class="mesh" aria-hidden="true"></i>
+
+<!-- ═══════════ فوتر نئون تمام‌عرض ═══════════ -->
+<footer class="footer" id="footer">
+  <div class="footer-glow" aria-hidden="true"></div>
+
+  <div class="footer-in">
+    <div class="footer-brand">
+      <a class="footer-logo" href="#hero" dir="ltr">FORGE<b>AI</b> HUB</a>
+      <p class="footer-tag">هوش مصنوعی خودت، روی ماشینِ خودت — بدون سرور ابری، بدون اشتراک، بدون خروج داده.</p>
+      <div class="footer-soc">
+        <a class="soc" href="https://github.com/lytkuh" target="_blank" rel="noopener" aria-label="گیت‌هاب"><svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.7.9 1.2 1.9 1.2 3.2 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+      </div>
+    </div>
+
+    <nav class="footer-col" aria-label="دسترسی سریع">
+      <h4>دسترسی سریع</h4>
+      <a href="#hero">خانه</a>
+      <a href="products.html">محصولات</a>
+      <a href="#panel">پنل مدیریت</a>
+      <a href="#truth">جدول صداقت</a>
+      <a href="https://lytkuh.ir/offer/open45" target="_blank" rel="noopener">خرید</a>
+    </nav>
+
+    <nav class="footer-col" aria-label="منابع">
+      <h4>منابع</h4>
+      <a href="https://lytkuh.ir/guide" target="_blank" rel="noopener">مستندات</a>
+      <a href="products.html">محصولات</a>
+      <a href="story.html">داستان</a>
+      <a href="roadmap.html">نقشهٔ راه</a>
       <a href="about.html">دربارهٔ ما</a>
-      <a href="https://github.com/lytkuh/lytkuh.github.io/releases/latest">⬇️ دانلود</a>
-      <a href="https://github.com/lytkuh">گیت‌هاب</a>
+    </nav>
+
+    <div class="footer-col footer-news">
+      <h4>خبرنامه</h4>
+      <p>برای دریافت آخرین اخبار و بروزرسانی‌ها عضو خبرنامه شوید.</p>
+      <form class="news" id="newsForm">
+        <input type="email" required class="f3-input" placeholder="ایمیل شما..." aria-label="ایمیل">
+        <button type="submit" class="f3-sub">عضویت</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="copy">© 2026 <b>Forge AI Studio</b> — تمام حقوق محفوظ است.</p>
+    <p class="made">ساخته‌شده با <b>اشتیاق</b> و نوآوری ⚡</p>
+    <nav class="legal" aria-label="قوانین">
+      <span class="ft-plain">حریم خصوصی</span>
+      <span class="ft-plain">قوانین</span>
     </nav>
   </div>
-</header>
-
-<main class="wrap">
-
-  <section class="hero">
-    <div class="hero-copy">
-      <div class="kicker">FORGEAI STUDIO PLATFORM</div>
-      <h2>هوش مصنوعیِ <span>خودت</span>،<br>روی ماشینِ <span>خودت</span>.</h2>
-      <p>پلتفرمِ کاملِ کدنویسی و اتوماسیون — چت، ویرایشِ کد، ترمینال و سیستمِ افزونه؛ همه روی کامپیوترِ خودت. بدونِ سرویسِ ابری، بدونِ هزینهٔ ماهانه، بدونِ تحریم.</p>
-      <div class="flow">
-        <div class="step"><i>◎</i> ASK</div><div class="arrow"></div>
-        <div class="step"><i>⌕</i> READ</div><div class="arrow"></div>
-        <div class="step"><i>✦</i> EDIT</div><div class="arrow"></div>
-        <div class="step"><i>⚙</i> RUN</div>
-      </div>
-      <a class="cta" href="https://github.com/lytkuh/lytkuh.github.io/releases/latest">⬇️ دانلودِ رایگان — v1.0.2</a>
-    </div>
-    <div class="hero-visual">
-      <div class="chip-row">
-        <span class="chip">SYSTEM READY</span>
-        <span class="chip">LOCAL + SECURE</span>
-        <span class="chip">OFFLINE OK</span>
-      </div>
-      <div class="big">FORGE<b>AI</b> STUDIO</div>
-      <div class="sub">v1.0.2 — Windows 11 · فارسی · RTL</div>
-    </div>
-  </section>
-
-  <section class="cards" id="product">
-    <div class="card">
-      <div class="ico">◆</div>
-      <h3>پلتفرمِ افزونه</h3>
-      <p>سیستمِ کاملِ افزونه با تأییدِ انسانی — هر قابلیت یک افزونه؛ نصب، تنظیم و فروش.</p>
-    </div>
-    <div class="card">
-      <div class="ico">🔒</div>
-      <h3>حریمِ خصوصیِ ساختاری</h3>
-      <p>مدل‌ها رویِ کامپیوترِ خودت اجرا می‌شوند. داده‌های تو هرگز از ماشینِ تو خارج نمی‌شوند.</p>
-    </div>
-    <div class="card">
-      <div class="ico">🛡️</div>
-      <h3>گاردِ قانون‌مند</h3>
-      <p>هوش مصنوعی پیشنهاد می‌دهد؛ تصمیمِ نهایی همیشه با انسان. ویرایش‌ها پیش از اعمال، تأیید می‌شوند.</p>
-    </div>
-  </section>
-
-  <section class="release">
-    <div>
-      <strong>نسخهٔ ۱.۰.۲ منتشر شد <span class="dot"></span></strong>
-      <span>اولین انتشارِ عمومی — ۲۰۲۶-۱۰-۲۹ · Setup + Portable · فعال‌سازیِ خودکارِ لایسنس · بدونِ تلومتری</span>
-    </div>
-    <a class="rel-btn" href="https://github.com/lytkuh/lytkuh.github.io/releases/latest">⬇️ دانلود</a>
-  </section>
-
-  <section class="status">
-    <div class="st"><i>◈</i><div><strong>PLATFORM <span class="dot"></span></strong><span>7 ستونِ زنده</span></div></div>
-    <div class="st"><i>⚙</i><div><strong>RUNTIME <span class="dot"></span></strong><span>PHP · MariaDB · Ollama</span></div></div>
-    <div class="st"><i>▣</i><div><strong>GUARDIAN <span class="dot"></span></strong><span>دفاعِ قانون‌مندِ فعال</span></div></div>
-    <div class="st"><i>◫</i><div><strong>API HUB <span class="dot"></span></strong><span>endpoint شخصی :7800/v1</span></div></div>
-  </section>
-
-</main>
-
-<footer class="wrap">
-  <span class="name">LYTKUH STUDIO</span> · © 2026 ·
-  <a href="about.html" style="color:var(--muted);text-decoration:none">دربارهٔ ما</a> ·
-  هوش مصنوعی پیشنهاد می‌دهد، تصمیم با انسان.
 </footer>
+</div>
+</div>
+<script>
+(function () {
+  'use strict';
+  var copyBtn = document.getElementById('copyCode');
+  if (copyBtn) {
+    var copyLabel = copyBtn.textContent;
+    copyBtn.addEventListener('click', function () {
+      function done() {
+        copyBtn.classList.add('copied');
+        copyBtn.textContent = 'کپی شد!';
+        setTimeout(function () {
+          copyBtn.classList.remove('copied');
+          copyBtn.textContent = copyLabel;
+        }, 1400);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText('OPEN45').then(done, done);
+      else {
+        var ta = document.createElement('textarea');
+        ta.value = 'OPEN45';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    });
+  }
+  /* ── reveal on scroll ── */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+  }
 
+  /* ── منوی پنل: حالت فعال ── */
+  document.querySelectorAll('.panel-menu .pm-item').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('.panel-menu .pm-item').forEach(function (i) { i.classList.remove('is-active'); });
+      item.classList.add('is-active');
+    });
+  });
+
+  var hs = document.getElementById('heroScroll');
+  if (hs) hs.addEventListener('click', function () {
+    var f = document.getElementById('features');
+    if (f) f.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
+<script>
+(function () {
+  var app = document.getElementById('app');
+  var bar = document.getElementById('bar');
+  var burger = document.getElementById('burger');
+  var labels = app.querySelectorAll('[data-fa]');
+  var lang = 'fa';
+
+  function setOpen(open) {
+    bar.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', lang === 'fa'
+      ? (open ? 'بستن منو' : 'باز کردن منو')
+      : (open ? 'Close menu' : 'Open menu'));
+  }
+
+  function setLang(next) {
+    lang = next;
+    bar.setAttribute('dir', next === 'fa' ? 'rtl' : 'ltr');
+    app.setAttribute('lang', next);
+    labels.forEach(function (el) { el.textContent = el.getAttribute('data-' + next); });
+    setOpen(bar.classList.contains('open'));
+  }
+
+  app.addEventListener('click', function (e) {
+    var a = e.target.closest('a.item, a.logo');
+    if (!a) return;
+    /* زبان: سوییچ درجا — بقیه: ناوبری واقعی بین صفحات */
+    if (a.getAttribute('data-key') === 'lang') {
+      e.preventDefault();
+      setLang(lang === 'fa' ? 'en' : 'fa');
+      return;
+    }
+    setOpen(false);
+  });
+
+  burger.addEventListener('click', function () { setOpen(!bar.classList.contains('open')); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && bar.classList.contains('open')) { setOpen(false); burger.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (bar.classList.contains('open') && !bar.contains(e.target)) setOpen(false);
+  });
+
+  var mq = window.matchMedia('(min-width: 1340px)');
+  var onChange = function () { if (mq.matches) setOpen(false); };
+  if (mq.addEventListener) mq.addEventListener('change', onChange); else mq.addListener(onChange);
+})();
+</script>
 </body>
 </html>
